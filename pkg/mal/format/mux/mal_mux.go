@@ -1,5 +1,5 @@
 // 定义媒体抽象层接口以及数据类型
-package media_abstract_layer_format
+package mal
 
 import (
 	fmt "github.com/zbb775885/media_tool/pkg/mal/format"

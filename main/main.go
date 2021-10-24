@@ -4,7 +4,9 @@ import (
 	"flag"
 
 	log "github.com/sirupsen/logrus"
-	"github.com/zbb775885/media_tool/pkg/ffmpeg"
+	ffmpeg "github.com/zbb775885/media_tool/pkg/imp/ffmpeg"
+	mal "github.com/zbb775885/media_tool/pkg/mal"
+	mal_demux "github.com/zbb775885/media_tool/pkg/mal/format/demux"
 )
 
 //参考ffmpeg配置输入输出参数
@@ -38,4 +40,7 @@ func main() {
 	log.Info("output file is ", *outputFile)
 
 	ffmpeg.Init()
+	mal.Init()
+
+	mal_demux.Create("ffmpeg_demux").DeMuxerInit(mal_demux.MalDemuxerParam{})
 }

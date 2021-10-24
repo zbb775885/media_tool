@@ -1,8 +1,8 @@
 package ffmpeg
 
 import (
-	log "github.com/sirupsen/logrus"
-	cgo_avfilter "github.com/zbb775885/media_tool/pkg/cgo/ffmpeg"
+	//cgo_avfilter "github.com/zbb775885/media_tool/pkg/cgo/ffmpeg"
+	demux "github.com/zbb775885/media_tool/pkg/imp/ffmpeg/demux"
 )
 
 const (
@@ -29,14 +29,20 @@ func (ff *FFmpeg) Error(errorCode int32) string {
 
 //初始化ffmpeg,打开ffmpeg动态库
 func Init() string {
-	log.Info("filter version is ", cgo_avfilter.AvfilterVersion())
-	log.Info("filter license is ", cgo_avfilter.AvfilterLicense())
-	log.Info("filter configuration is ", cgo_avfilter.AvfilterConfiguration())
+	// log.Info("filter version is ", cgo_avfilter.AvfilterVersion())
+	// log.Info("filter license is ", cgo_avfilter.AvfilterLicense())
+	// log.Info("filter configuration is ", cgo_avfilter.AvfilterConfiguration())
 	//log.Info("filter pad type is ", cgo_avfilter.AvfilterPadGetType(nil, 0))
 
 	//var data cgo_avfilter.AVFilter
 
 	//log.Info("data is ", data.name)
+	// ffmpeg := new(FFmpeg)
+	// if nil == ffmpeg {
+	// 	log.Error("new ffmpeg fail")
+	// }
 
-	return new(FFmpeg).Error(INIT_ERR)
+	demux.Register()
+
+	return ""
 }
