@@ -7,7 +7,7 @@ SRC=$(shell find ./ -name "*.go")
 
 #设置cgo环境变量
 #CGO_LIB=$(shell ls  ${OSP_LIB} |grep -E ".a"|xargs -I {} ls ${OSP_LIB}/{})
-export CGO_LDFLAGS=-L $(OSP_LIB) -l:libavfilter.a -l:libswscale.a -l:libswresample.a -l:libavformat.a -l:libavcodec.a  -l:libavdevice.a -l:libavutil.a -lm -lpthread
+export CGO_LDFLAGS=-static -L $(OSP_LIB) -l:libavfilter.a -l:libswscale.a -l:libswresample.a -l:libavformat.a -l:libavcodec.a  -l:libavdevice.a -l:libavutil.a -lm -lpthread
 export CGO_CFLAGS=-I $(OSP_INC)
 export CGO_CXXFLAGS=-I $(OSP_INC)
 export CGO_CPPFLAGS=-I $(OSP_INC)

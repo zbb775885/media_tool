@@ -30,11 +30,6 @@ func main() {
 
 	//输入参数解析
 	flag.Parse()
-	if len(flag.Args()) == 0 {
-		flag.Usage()
-		return
-	}
-
 	log.Info("input file is ", *inputFile)
 	log.Info("output file is ", *outputFile)
 

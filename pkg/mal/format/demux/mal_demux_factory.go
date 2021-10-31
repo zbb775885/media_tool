@@ -15,7 +15,7 @@ var mapMethodNoArg = map[string]MalCreate{}
 
 //注册函数
 func Register(name string, function MalCreate) {
-	if _, ret := mapMethodNoArg[name]; ret {
+	if _, ret := mapMethodNoArg[name]; ret == false {
 		mapMethodNoArg[name] = function
 	} else {
 		log.Errorf("function %s has been insert", name)
