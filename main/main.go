@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+
 	log "github.com/sirupsen/logrus"
 	ffmpeg "github.com/zbb775885/media_tool/pkg/imp/ffmpeg"
 	mal "github.com/zbb775885/media_tool/pkg/mal"
