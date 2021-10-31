@@ -1,5 +1,5 @@
 // 定义媒体抽象层接口以及数据类型
-package mal_format_demux
+package mal_format_mux
 
 import (
 	log "github.com/sirupsen/logrus"
@@ -7,7 +7,7 @@ import (
 
 //封装的抽象接口
 type MalCreate interface {
-	Create() MalDemuxerInterface
+	Create() MalMuxerInterface
 }
 
 //全局函数表
@@ -15,7 +15,7 @@ var mapMethodNoArg = map[string]MalCreate{}
 
 //注册函数
 func Register(name string, function MalCreate) {
-	if _, ret := mapMethodNoArg[name]; false == ret {
+	if _, ret := mapMethodNoArg[name]; ret {
 		mapMethodNoArg[name] = function
 	} else {
 		log.Errorf("function %s has been insert", name)
@@ -24,7 +24,7 @@ func Register(name string, function MalCreate) {
 
 //删除函数
 func UnRegister(name string) {
-	if _, ret := mapMethodNoArg[name]; true == ret {
+	if _, ret := mapMethodNoArg[name]; ret {
 		delete(mapMethodNoArg, name)
 	} else {
 		log.Errorf("function %s has not been insert", name)
@@ -32,8 +32,8 @@ func UnRegister(name string) {
 }
 
 //删除函数
-func Create(name string) MalDemuxerInterface {
-	if _, ret := mapMethodNoArg[name]; true == ret {
+func Create(name string) MalMuxerInterface {
+	if _, ret := mapMethodNoArg[name]; ret {
 		return mapMethodNoArg[name].Create()
 	} else {
 		log.Errorf("function %s has not been insert", name)

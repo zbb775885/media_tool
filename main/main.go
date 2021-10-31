@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-
 	log "github.com/sirupsen/logrus"
 	ffmpeg "github.com/zbb775885/media_tool/pkg/imp/ffmpeg"
 	mal "github.com/zbb775885/media_tool/pkg/mal"
@@ -30,8 +29,7 @@ func main() {
 
 	//输入参数解析
 	flag.Parse()
-
-	if 0 == len(flag.Args()) {
+	if len(flag.Args()) == 0 {
 		flag.Usage()
 		return
 	}
@@ -39,8 +37,11 @@ func main() {
 	log.Info("input file is ", *inputFile)
 	log.Info("output file is ", *outputFile)
 
+	//ffmpeg实现层注册及初始化
 	ffmpeg.Init()
+
+	//媒体抽象层初始化
 	mal.Init()
 
-	mal_demux.Create("ffmpeg_demux").DeMuxerInit(mal_demux.MalDemuxerParam{})
+	mal_demux.Create("ffmpeg_demux").DemuxerInit(mal_demux.MalDemuxerParam{})
 }

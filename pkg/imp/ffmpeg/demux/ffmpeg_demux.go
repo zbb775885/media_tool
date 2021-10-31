@@ -1,4 +1,4 @@
-package ffmpeg_demux
+package ffmpeg_demux // import "github.com/zbb775885/media_tool/pkg/imp/ffmpeg/demux"
 
 import (
 	log "github.com/sirupsen/logrus"
@@ -10,41 +10,42 @@ type FFmpegDemux struct {
 }
 
 //创建封装器
-func (fd *FFmpegDemux) DeMuxerInit(initParam mal_demux.MalDemuxerParam) string {
+func (fd *FFmpegDemux) DemuxerInit(initParam mal_demux.MalDemuxerParam) string {
 	log.Info("xxxxxxxx")
 
 	return ""
 }
 
 //销毁封装器
-func (fd *FFmpegDemux) DeMuxerDeinit() string {
+func (fd *FFmpegDemux) DemuxerDeinit() string {
 	return ""
 }
 
 //配置封装器
-func (fd *FFmpegDemux) DeMuxerConfig(runParam mal_demux.MalDemuxerParam) string {
+func (fd *FFmpegDemux) DemuxerConfig(runParam mal_demux.MalDemuxerParam) string {
 	return ""
 }
 
 //启动封装器
-func (fd *FFmpegDemux) DeMuxerStart() string {
+func (fd *FFmpegDemux) DemuxerStart() string {
 	return ""
 }
 
 //停止封装器
-func (fd *FFmpegDemux) DeMuxerStop() string {
+func (fd *FFmpegDemux) DemuxerStop() string {
 	return ""
 }
 
-type CreateDemux struct {
+//解封装构造器构造器
+type FFmpegDemuxCreator struct {
 }
 
 //创建FFmpegDemux对象
-func (fd *CreateDemux) Create() mal_demux.MalDemuxerInterface {
+func (fd *FFmpegDemuxCreator) Create() mal_demux.MalDemuxerInterface {
 	return &FFmpegDemux{}
 }
 
 //Demux 注册
 func Register() {
-	mal_demux.Register("ffmpeg_demux", &CreateDemux{})
+	mal_demux.Register("ffmpeg_demux", &FFmpegDemuxCreator{})
 }

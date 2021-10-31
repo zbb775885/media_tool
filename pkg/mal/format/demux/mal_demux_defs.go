@@ -1,5 +1,5 @@
 // 定义媒体抽象层接口以及数据类型
-package mal_format_demux
+package mal_format_demux // import "github.com/zbb775885/media_tool/pkg/mal/format/demux"
 
 import (
 	fmt "github.com/zbb775885/media_tool/pkg/mal/format"
@@ -14,13 +14,13 @@ type MalDemuxerParam struct {
 //封装的抽象接口
 type MalDemuxerInterface interface {
 	//创建封装器
-	DeMuxerInit(initParam MalDemuxerParam) string
+	DemuxerInit(initParam MalDemuxerParam) string
 	//销毁封装器
-	DeMuxerDeinit() string
+	DemuxerDeinit() string
 	//配置封装器
-	DeMuxerConfig(runParam MalDemuxerParam) string
+	DemuxerConfig(runParam MalDemuxerParam) string
 	//启动封装器
-	DeMuxerStart() string
+	DemuxerStart() string
 	//停止封装器
-	DeMuxerStop() string
+	DemuxerStop() string
 }

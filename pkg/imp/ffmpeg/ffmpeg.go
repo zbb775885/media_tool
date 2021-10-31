@@ -3,6 +3,7 @@ package ffmpeg
 import (
 	//cgo_avfilter "github.com/zbb775885/media_tool/pkg/cgo/ffmpeg"
 	demux "github.com/zbb775885/media_tool/pkg/imp/ffmpeg/demux"
+	mux "github.com/zbb775885/media_tool/pkg/imp/ffmpeg/mux"
 )
 
 const (
@@ -42,7 +43,11 @@ func Init() string {
 	// 	log.Error("new ffmpeg fail")
 	// }
 
+	//注册解封装器的实现
 	demux.Register()
+
+	//注册封装器的实现
+	mux.Register()
 
 	return ""
 }
