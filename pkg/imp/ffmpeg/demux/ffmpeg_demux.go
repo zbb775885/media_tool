@@ -2,6 +2,7 @@ package ffmpeg_demux // import "github.com/zbb775885/media_tool/pkg/imp/ffmpeg/d
 
 import (
 	log "github.com/sirupsen/logrus"
+	"github.com/zbb775885/goav/avformat"
 	mal_demux "github.com/zbb775885/media_tool/pkg/mal/format/demux"
 )
 
@@ -11,7 +12,7 @@ type FFmpegDemux struct {
 
 //创建封装器
 func (fd *FFmpegDemux) DemuxerInit(initParam mal_demux.MalDemuxerParam) string {
-	log.Info("xxxxxxxx")
+	log.Info("AvformatVersion() is ", avformat.AvformatVersion())
 
 	return ""
 }

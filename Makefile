@@ -35,6 +35,6 @@ define  docker_env
 	docker run --rm --name=media_tool \
 	--env PROJECT_PATH=${PROJECT_PATH} \
 	-v ${PWD}:${PROJECT_PATH} \
-	zbb775885/ubuntu:v1 \
+	zbb775885/ubuntu:v2 \
 	bash -c "source /etc/profile && cd ${PROJECT_PATH} && make -j"
 endef
